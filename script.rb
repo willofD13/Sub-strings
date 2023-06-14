@@ -1,6 +1,6 @@
 def substrings (string, array)
   times = array.map do |substr|
-             string.scan(/(?=#{substr})/).count
+             string.downcase.scan(/(?=#{substr})/).count
             end
   counted = array.zip(times).flat_map { |string,count| Array.new(count) {string}}
   counted.reduce(Hash.new(0)) do |result, substr|
